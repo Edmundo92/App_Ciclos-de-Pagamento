@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux'
+import { reducer as formReducer } from 'redux-form'
 
 import DashboardReducer from '../dashboard/dashBoardReducer'
 import TabReducer from '../commom/tab/tabReducer'
@@ -7,7 +8,8 @@ import BillingCycleReducer from '../billingCycle/billingCycleReducer'
 const rooteReducer = combineReducers({
     dashboard: DashboardReducer,
     tab: TabReducer,
-    billingCycle: BillingCycleReducer
+    billingCycle: BillingCycleReducer,
+    form: formReducer
 })
 
 export default rooteReducer
@@ -17,5 +19,5 @@ export default rooteReducer
 
 
 
-
+//o redux-form é colocado no arquivo onde estão concentrados todos os reducers
 //este aquivo vai concatenar todos os reducers da app

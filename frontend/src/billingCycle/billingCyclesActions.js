@@ -37,3 +37,12 @@ export function create(values){
     //     type: 'TEMP'
     // }
 }
+
+
+// Ao clicar no btn editar, vai ocultar as demais abas e ficará apenas a aba de alterar
+export function showUpdate(billingCycle) {
+    return [
+        showTabs('tabUpdate'),
+        selectTab('tabUpdate')
+    ]
+}

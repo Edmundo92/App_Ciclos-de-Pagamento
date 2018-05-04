@@ -23,6 +23,9 @@ export function update(values) {
     return submit(values, 'put')
 }
 
+export function remove(values) {
+    return submit(values, 'delete')
+}
 
 function submit(values, method) {
     return dispatch => {
@@ -68,10 +71,19 @@ function submit(values, method) {
 
 
 // Ao clicar no btn editar, vai ocultar as demais abas e ficará apenas a aba de alterar
+//showUpdate e showDelete têm o mesmo code, refatorar usando uma func de formas a reaproveitar e n duplicar code
 export function showUpdate(billingCycle) {
     return [
         showTabs('tabUpdate'),
         selectTab('tabUpdate'),
+        initialize('billingCycleForm', billingCycle )
+    ]
+}
+
+export function showDelete(billingCycle) {
+    return [
+        showTabs('tabDelete'),
+        selectTab('tabDelete'),
         initialize('billingCycleForm', billingCycle )
     ]
 }

@@ -23,4 +23,14 @@ class BillingCycleForm extends Component {
         )
     }
 }
-export default reduxForm({form: 'billingCycleForm'})(BillingCycleForm)
+
+/*
+    Chamei o destroyOnUnmount pela seguinte questao
+    Nessa app estamos a usar 2 instancias do componente <Form />, mas iremos usar 3.
+    E o que eu quero fazer, é que quando clicar no btn editar/alterar ele deve trazer os dados da linha em que eu cliquei para a aba
+    alterar e dessa forma eu posso alterar, mas o que acontece é que o redux por ter 2 instancias desse componente, ele n exibi as duas ao mesmo tempo
+    logo, se ele renderizar uma, ao clicar na no btn editar, ele destroi o componente que está renderizado no momento e constroi o que foi pedido, dessa forma
+    ele apaga os dados da linha que foi pedida. o destroyOnUnmount com o valor false, evita que o componente seja destruido e juntamente com os dados
+
+*/
+export default reduxForm({form: 'billingCycleForm', destroyOnUnmount: false})(BillingCycleForm)

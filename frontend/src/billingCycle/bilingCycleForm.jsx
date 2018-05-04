@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 import { reduxForm, Field } from 'redux-form'
 
+import { init } from './billingCyclesActions'
 import labelAndInput from '../commom/form/labelAndInput'
 
 class BillingCycleForm extends Component {
@@ -18,6 +21,7 @@ class BillingCycleForm extends Component {
                 </div>
                 <div className="box-footer">
                     <button type="submit" className="btn btn-primary">Submit</button>
+                    <button type="button" className="btn btn-default" onClick={this.props.init}>Cancelar</button>
                 </div>
             </form>
         )
@@ -33,4 +37,8 @@ class BillingCycleForm extends Component {
     ele apaga os dados da linha que foi pedida. o destroyOnUnmount com o valor false, evita que o componente seja destruido e juntamente com os dados
 
 */
-export default reduxForm({form: 'billingCycleForm', destroyOnUnmount: false})(BillingCycleForm)
+
+BillingCycleForm = reduxForm({form: 'billingCycleForm', destroyOnUnmount: false})(BillingCycleForm)
+const mapDispatchToProps = dispatch => bindActionCreators({ init }, dispatch)
+
+export default connect(null, mapDispatchToProps)(BillingCycleForm)

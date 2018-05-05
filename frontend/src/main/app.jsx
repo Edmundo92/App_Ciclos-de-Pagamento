@@ -4,7 +4,7 @@ import '../commom/template/dependencies'
 import Header from '../commom/template/header'
 import SideBar from '../commom/template/sidebar'
 import Footer from '../commom/template/footer'
-import Routes from './routes'
+// import Routes from './routes'
 import Messages from '../commom/msg/messages'
 
 export default props =>(
@@ -12,7 +12,7 @@ export default props =>(
         <Header />
         <SideBar />
         <div className="content-wrapper">
-            <Routes /> 
+            {props.children}
         </div>
         <Footer />
         <Messages />

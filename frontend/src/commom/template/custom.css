@@ -5,9 +5,13 @@
 }
 
 button{
-    margin-left: 5px;
+    margin-left: 3px;
 }
 
 .table-actions{
     width: 150px;
+}
+
+fieldset{
+    padding-left: -4px;
 }
